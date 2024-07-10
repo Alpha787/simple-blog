@@ -1,11 +1,11 @@
 from django.contrib import admin
-from posts.models import Post
+from users.models import User
 from django import forms
 # Register your models here.
 
-# class PostForm(forms.ModelForm):
+# class UserForm(forms.ModelForm):
 #   class Meta:
-#     model = Post
+#     model = User
 #     fields = '__all__'
 
-admin.site.register(Post)
+admin.site.register(User)

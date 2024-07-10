@@ -6,7 +6,3 @@ class Post(models.Model):
   text = models.TextField()
   created_date = models.DateTimeField()
   published_date = models.DateTimeField()
-
-class Comment(models.Model):
-  text = models.TextField()
-  published_date = models.DateTimeField()
