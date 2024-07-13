@@ -21,6 +21,8 @@ from users.views import users_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post', post_list, name='posts_data'),
-    path('user', users_list, name='users_data'),
+    path('', include('posts.urls')), # перенаправление на posts
+    path('', include('users.urls')), # перенаправление на users
+    # path('post', post_list, name='posts_data'),
+    # path('user', users_list, name='users_data'),
 ]
