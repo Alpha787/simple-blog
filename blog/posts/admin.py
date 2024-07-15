@@ -1,6 +1,5 @@
 from django.contrib import admin
 from posts.models import Post
-from django import forms
 # Register your models here.
 
 # class PostForm(forms.ModelForm):
@@ -8,4 +7,12 @@ from django import forms
 #     model = Post
 #     fields = '__all__'
 
-admin.site.register(Post)
+
+# @admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+  list_display = ("id", "author","title", "text", "created_date", "published_date")
+  list_filter = ("author", "created_date", "published_date")
+  date_hierarchy = ("published_date")
+  
+
+admin.site.register(Post, PostAdmin)
