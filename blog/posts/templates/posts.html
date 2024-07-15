@@ -1,14 +1,15 @@
 {% extends "post.html" %}
 {% block content %}
+{% for post in posts %}
 <div class="row" id="content">
   <div class="medium-8 columns">
     <div class="blog-post">
-      <h3>Здесь должен быть заголовок <small>3/6/2015</small></h3>
+      <h3>{{ post.title }}<small>{{ post.published_date }}</small></h3>
       <img class="thumbnail" src="https://placehold.it/850x350">
-      <p>Текст рыба. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+      <p>{{ post.text }}</p>
       <div class="callout">
         <ul class="menu simple">
-          <li><a href="#">Автор: Mike Mikers</a></li>
+          <li><a href="#">Автор: {{ post.author }}</a></li>
           <li><a href="#">Комментарии: 3</a></li>
         </ul>
       </div>
@@ -36,7 +37,7 @@
 </div>
 
 {% comment %} <h1>There will be posts!</h1> {% endcomment %}
-{% for post in posts %}
-  <div>{{ post.title}} - {{ post.text}} - {{ post.created_date }} - {{ post.published_date }}</div>
+
+  {% comment %} <div>- {{ post.title}} - {{ post.text}} - {{ post.created_date }} - {{ post.published_date }}</div> {% endcomment %}
 {% endfor %}
 {% endblock %}
