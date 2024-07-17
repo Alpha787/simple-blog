@@ -1,0 +1,12 @@
+{% extends 'post.html' %}
+{% block content %}
+<div class="main">
+  <form method="POST">
+    {% csrf_token %}
+    Are you sure you want to delete this post?
+    <input type="submit" value=""Yes/>
+    <a href="/">Cancel</a>
+  </form>
+</div>
+
+{% endblock %}
