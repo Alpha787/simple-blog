@@ -1,7 +1,11 @@
 from django.urls import path
-from . import views
+from .views import PostView, PostDetailView, PostDeleteView
+# from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('', views.post_list, name='post_list')
+    # path('', post_list, name='post_list'),
+    path('', PostView.as_view()),
+    path('post/<post_id>', PostDetailView.as_view()),
+    path('post/<post_id>/delete', PostDeleteView.as_view()),
 ]
