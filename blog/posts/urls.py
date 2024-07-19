@@ -6,6 +6,6 @@ from .views import PostView, PostDetailView, PostDeleteView
 urlpatterns = [
     # path('', post_list, name='post_list'),
     path('', PostView.as_view()),
-    path('<post_id>', PostDetailView.as_view()),
-    path('<post_id>/delete', PostDeleteView.as_view()),
+    path('post/<post_id>', PostDetailView.as_view()),
+    path('post/<post_id>/delete', PostDeleteView.as_view()),
 ]
