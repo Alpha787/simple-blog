@@ -6,7 +6,9 @@
   <div class="medium-8 columns">
     <div class="blog-post">
       <h3>{{ post.title }}<small>{{ post.published_date }}</small></h3>
-      <img src"{{ post.image.url }}" width="850px" height="650px">
+      <div>
+        <img src="{{ post.image.url }}" width="850px" height="650px">
+      </div>
       <p>{{ post.text }}</p>
       <div class="callout">
         <ul class="menu simple">
