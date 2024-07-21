@@ -1,8 +1,11 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 # from django.http import HttpResponse
-from django.views.generic import TemplateView, View, DetailView, UpdateView, DeleteView, CreateView
+from django.views.generic import TemplateView, View, DetailView, UpdateView, DeleteView, CreateView, ListView
 # from django.db import connection
 # from django.forms import ModelForm
+
 from .models import Post
 from .forms import PostForm
 
@@ -41,6 +44,22 @@ class PostView(View):
   # удаление поста
   def delete(self, request, *args, **kwargs):
     pass
+
+# Отображение списка постов
+class HomeView(ListView):
+  model = Post
+  context_object_name = "posts"
+  paginate_by = 10
+
+  def get_queryset(self) -> QuerySet[Any]:
+    queryset = super().get_queryset()
+    return queryset.order_by('created_date')
+    
+
+  def get_template_names(self):
+    if self.request.htmx:
+      return "post-list-elements.html"
+    return "posts.html"
 
 class PostCreateView(CreateView):
   template_name = "post_create.html"
