@@ -8,6 +8,7 @@ django = "*"
 python-dotenv = "*"
 pillow = "*"
 factory-boy = "*"
+django-htmx = "*"
 
 [dev-packages]
 

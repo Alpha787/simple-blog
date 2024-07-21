@@ -1,0 +1,25 @@
+{% for post in posts %}
+<a href"#" class="text-decoration-none infscroll"></a>
+{% if forloop.last %}
+<div class="card border-0 pb-3 pb-sm-5"></div>
+  {% else %}
+  <div class="card border-0 pb-3 pb-sm-5" hx-get="{% url 'homepage' %}?page={{ page_obj.number|add:1 }}" hx-trigger="revealed" hx-swap="afterend">
+    {% endif %}
+    <div class="medium-8 columns">
+      <div class="blog-post">
+        <h3 class="ifnscroll-title">{{ post.title }}<small>{{ post.published_date }}</small></h3>
+        <div>
+          <img src="{{ post.image.url }}" width="850px" height="350px">
+        </div>
+        <p>{{ post.text }}</p>
+        <div class="callout">
+          <ul class="menu simple">
+            <li><a href="#">Автор: {{ post.author }}</a></li>
+            <li><a href="#">Комментарии: 3</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endfor %}
