@@ -5,44 +5,31 @@
 
 <div class="row" id="content">
   {% include "post-list-elements.html" %}
-  <div class="medium-3 columns" data-sticky-container>
-    <div class="sticky" data-sticky data-anchor="content">
-      <h4>Categories</h4>
-      <ul>
-        <li><a href="#">Skyler</a></li>
-        <li><a href="#">Jesse</a></li>
-        <li><a href="#">Mike</a></li>
-        <li><a href="#">Holly</a></li>
-      </ul>
-
-      <h4>Authors</h4>
-      <ul>
-        <li><a href="#">Skyler</a></li>
-        <li><a href="#">Jesse</a></li>
-        <li><a href="#">Mike</a></li>
-        <li><a href="#">Holly</a></li>
-      </ul>
-    </div>
-  </div>
 </div>
 <div class="row column">
+  {% comment %} TODO: исправить шаблон пагинации {% endcomment %}
   <ul class="pagination" role="navigation" aria-label="Pagination">
-    <li class="disabled">Previous</li>
+    {% comment %} <li class="disabled">Previous</li> {% endcomment %}
     {% if page_obj.has_previous %}
     {% comment %} <li class="current"><span class="show-for-sr">You're on page</span> 1</li> {% endcomment %}
-    <li><a href="?page=1" aria-label="Page 1">&laquo; first</a></li>
-    <li><a href="?page={{ page_obj.previous_page_number }}" aria-label="Page 2">previous</a></li>
+    {% comment %} <li><a href="?page=1" aria-label="Page 1">&laquo; first</a></li> {% endcomment %}
+    <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+    <li><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
     {% comment %} <li><a href="#" aria-label="Page 4">4</a></li> {% endcomment %}
     {% endif %}
-    <span class="cureent">
+    {% comment %} <span class="cureent">
       Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-    </span>
-    {% if  %} 
+    </span> {% endcomment %}
+    {% if page_obj.has_next %} 
+      <li><a href="?page={{ page_obj.number}}">{{ page_obj.number }}</a></li>
+      <li><a href="?page={{ page_obj.number}}">{{ page_obj.paginator.ELLIPSIS }}</a></li>
+      <li><a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+      <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
     {% endif %}
-    <li class="ellipsis"></li>
+    {% comment %} <li class="ellipsis"></li>
     <li><a href="#" aria-label="Page 12">12</a></li>
     <li><a href="#" aria-label="Page 13">13</a></li>
-    <li><a href="#" aria-label="Next page">Next</a></li>
+    <li><a href="#" aria-label="Next page">Next</a></li> {% endcomment %}
   </ul>
 </div>
 {% endblock %}
