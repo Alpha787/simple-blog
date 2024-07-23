@@ -10,21 +10,31 @@
   <body>
     
     <!-- Start Top Bar -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="menu-text">Новостной сайт Василия</li>
-        </ul>
+    <nav class="top-bar topbar-responsive">
+      <div class="top-bar-title">
+        <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+          <button class="menu-icon" type="button" data-toggle></button>
+        </span>
+        <a class="topbar-responsive-logo" href="#"><strong>Site Title</strong></a>
       </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><a href="#">Главная</a></li>
-          <li><a href="#">Новости</a></li>
-          <li><a href="#">Three</a></li>
-          <li><a href="#">Four</a></li>
-        </ul>
+      <div id="topbar-responsive" class="topbar-responsive-links">
+        <div class="top-bar-right">
+          <ul class="menu simple vertical medium-horizontal">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+              <button type="button" class="button hollow topbar-responsive-button">Categories</button>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
+    
+    
     <!-- End Top Bar -->
     <div class="callout large primary">
       <div class="row column text-center">
@@ -39,4 +49,45 @@
       $(document).foundation();
     </script>
   </body>
+  <footer class="responsive-blog-footer">
+    <div class="row">
+      <div class="medium-8 columns small-order-2 medium-order-1 about-container">
+        <div class="row">
+          <div class="hide-for-small-only medium-4 columns about-section">
+            <img src="https://placehold.it/250x250">
+          </div>
+          <div class="medium-8 columns about-section">
+            <h4> About Me</h4>
+            <p>paragraph about how amazing and awesome i am paragraph about how amazing and awesome i am paragraph about how amazing and awesome i am</p>
+            <a href="">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="small-12 medium-4 columns small-order-1 medium-order-2 mailing-container">
+        <h4 class="mailing-list">Join my mailing list</h4>
+        <input type="text" placeholder="Email Address">
+        <a class="button expanded subscribe-button" href="#">Subscribe Now</a>
+      </div>
+    </div>
+    <div class="row tag-search">
+      <div class="columns">
+        <h4>Search by Tag</h4>
+        <ul class="menu simple tag-section">
+          <li><a href="">word</a></li>
+          <li><a href="">word</a></li>
+          <li><a href="">word</a></li>
+          <li><a href="">word</a></li>
+          <li><a href="">word</a></li>
+          <li><a href="">word</a></li>
+          <li><a href="">word</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row columns flex-container align-justify">
+       <p> all rights reserved</p>
+      <div class="up-arrow">
+        <a href="#top"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
 </html>
