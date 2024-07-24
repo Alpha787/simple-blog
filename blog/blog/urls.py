@@ -23,8 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls')), # перенаправление на posts
     path('', include('users.urls')), # перенаправление на users
-    # path('post', post_list, name='posts_data'),
-    # path('user', users_list, name='users_data'),
+    path('', include('django.contrib.auth.urls')), # перенаправление на страницу логина
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )
 
 if settings.DEBUG:
