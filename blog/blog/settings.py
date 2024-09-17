@@ -44,9 +44,12 @@ INSTALLED_APPS = [
     'posts',
     'users',
     'django_htmx',
+    'debug_toolbar',
+    'captcha',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,7 +60,12 @@ MIDDLEWARE = [
     'django_htmx.middleware.HtmxMiddleware',
 ]
 
+if DEBUG is False:
+    del MIDDLEWARE[0]
+
 ROOT_URLCONF = 'blog.urls'
+
+INTERNAL_IPS = ['127.0.0.1']
 
 TEMPLATES = [
     {
