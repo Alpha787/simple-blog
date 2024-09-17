@@ -1,4 +1,5 @@
 <!doctype html>
+{% extends 'base.html' %}
 {% load static %}
 <html class="no-js" lang="en">
   <head>
@@ -51,7 +52,7 @@
     {% endblock %}
    
     <script>
-      $(document).foundation();
+      {% comment %} Здесь должны быть подключенные скрипты {% endcomment %}
     </script>
   </body>
   <footer class="responsive-blog-footer">
