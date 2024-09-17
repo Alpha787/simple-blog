@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Мой новостной сайт</title>
+        <link rel="stylesheet" href="{% static 'registration.css' %}">
+        <link rel="stylesheet" href="{% static 'topbar.css' %}">
+        <link rel="stylesheet" href="{% static 'alert.css' %}">
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              href="{% static 'favicon.ico' %}">
+        <link rel="stylesheet"
+              href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&amp;display=swap"
+              rel="stylesheet">
+        <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+        <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+        <link href="{% static 'assets/css/user.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendors/prism/prism.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Start Top Bar -->
+        <nav class="top-bar topbar-responsive">
+            <div class="top-bar-title">
+            <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+                <button class="menu-icon" type="button" data-toggle></button>
+            </span>
+            <a class="topbar-responsive-logo" href="#"><strong>Site Title</strong></a>
+            </div>
+            <div id="topbar-responsive" class="topbar-responsive-links">
+            <div class="top-bar-right">
+                <ul class="menu simple vertical medium-horizontal">
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Works</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact</a></li>
+                <li>
+                    <button type="button" class="button hollow topbar-responsive-button">Categories</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Войти</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <main class="main" id="top">
+            
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <section class="py-0 bg-black">
+            <div class="container">
+                <div class="row justify-content-md-between justify-content-evenly py-4">
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+                        <p class="fs--1 my-2 fw-light text-200">Все права принадлежат &copy; Blog it! 2023</p>
+                    </div>
+                    <div class="col-12 col-sm-8 col-md-6">
+                        <p class="fs--1 fw-light my-2 text-center text-md-end text-200">
+                            Платформа работает на<a class="fw-bold text-primary"
+   href="https://www.djangoproject.com/"
+   target="_blank"> Django</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="{% static 'vendors/popper/popper.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+        <script src="{% static 'vendors/anchorjs/anchor.min.js' %}"></script>
+        <script src="{% static 'vendors/is/is.min.js' %}"></script>
+        <script src="{% static 'vendors/lodash/lodash.min.js' %}"></script>
+        <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+        <script src="{% static 'vendors/prism/prism.js' %}"></script>
+        <script src="{% static 'assets/js/theme.js' %}"></script>
+    </body>
+</html>
