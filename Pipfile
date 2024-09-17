@@ -9,6 +9,8 @@ python-dotenv = "*"
 pillow = "*"
 factory-boy = "*"
 django-htmx = "*"
+django-debug-toolbar = "*"
+django-simple-captcha = "*"
 
 [dev-packages]
 
