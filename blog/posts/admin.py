@@ -15,7 +15,7 @@ from posts.models import Post
 
 # @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-  list_display = ("id", "image","author","title", "text", "created_date", "published_date")
+  list_display = ("id", "image","author","title", "created_date", "published_date")
   list_filter = ("author", "created_date", "published_date")
   date_hierarchy = ("published_date")
   formfield_overrides = {

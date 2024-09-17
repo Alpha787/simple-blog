@@ -1,4 +1,4 @@
-{% for post in posts %}
+{% for post in posts %} {# генерация постов posts #}
 <a href"#" class="text-decoration-none infscroll"></a>
 {% if forloop.last %}
 <div class="card border-0 pb-3 pb-sm-5"></div>
@@ -11,8 +11,8 @@
         <div>
           <img src="{{ post.image.url }}" width="850px" height="350px">
         </div>
-        <p>{{ post.text }}</p>
-        <div class="callout">
+        <p>{{ post.text|truncatechars:200 }}</p> {# обрезать строку в пределах 200 символов #}
+        <div class="callout"> 
           <ul class="menu simple">
             <li><a href="#">Автор: {{ post.author }}</a></li>
             <li><a href="#">Комментарии: 3</a></li>

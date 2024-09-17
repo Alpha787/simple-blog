@@ -1,8 +1,10 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect, HttpResponse
 # from django.http import HttpResponse
 from django.views.generic import TemplateView, View, DetailView, UpdateView, DeleteView, CreateView, ListView
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib import messages
 # from django.db import connection
 # from django.forms import ModelForm
 
@@ -113,3 +115,44 @@ class PostDeleteView(DeleteView):
       obj.delete()
       return HttpResponseRedirect("/")
     return render(request, "delete_view.html", context)
+  
+# Чтобы увидеть некоторые HttpRequestатрибуты в действии
+def see_request(request):
+  text = f"""
+  Attributes of the HttpRequest object:
+  scheme: {request.scheme}
+  body: {request.body}
+  path: {request.path}
+  method: {request.method}
+  GET: {request.GET}
+  user: {request.user}
+  """
+  return HttpResponse(text, content_type="text/plain")
+
+# Вывод инфы о пользователе
+def user_info(request):
+  text = f"""
+  Selected HttpRequest.user attributes
+  username: {request.user.username}
+  is_anonymous: {request.user.is_anonymous}
+  is_staff: {request.user.is_staff}
+  is_superuser: {request.user.is_superuser}
+  is_active: {request.user.is_active}
+  """
+  return HttpResponse(text, content_type="text/plain")
+
+@login_required
+def private_place(request):
+  return HttpResponse("Shhh, members only!", content_type="text/plain")
+
+@user_passes_test(lambda user: user.is_staff)
+def staff_place(request):
+  return HttpResponse("Employees must wash hands", content_type="text/plain")
+
+@login_required
+def add_messages(request):
+  username = request.user.username
+  messages.add_message(request, messages.INFO, f"Hello {username}")
+  messages.add_message(request, messages.WARNING, "DANGER WILL ROBINSON")
+  
+  return HttpResponse("Messages added", content_type="text/plain")

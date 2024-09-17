@@ -1,8 +1,13 @@
-{% extends "post.html" %}
+{% extends "base.html" %}
 {% load static %}
 <script src="{% static 'htmx.min.js' %}" defer></script>
 {% block content %}
-
+<!-- End Top Bar -->
+<div class="callout large primary">
+  <div class="row column text-center">
+    <h1>Новости</h1>
+  </div>
+</div>
 <div class="row" id="content">
   {% include "post-list-elements.html" %}
 </div>
